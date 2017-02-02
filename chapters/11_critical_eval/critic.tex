@@ -1,0 +1,87 @@
+\chapter{Critical Evaluation} \label{chapter:Critical Evaluation}
+
+\section{Time Management}
+Overall, time management within the project was handled well. By using agile methodology throughout the project we constantly set new deadlines and targets to reach for the next sprint, and this helped ensure progress was consistently made from start to finish. This became more challenging in certain stages of the project due to coursework deadlines affecting how much work each team member was able to do, and as everyone took a different set of modules this meant that we had to constantly adjust to the availability of each other. With frequent scrums, the team was able to discuss availability and inform the rest of the group of any major deadlines, and this gave us the ability to alter workload to compensate around this. Another ethos that was used in the project which assisted situations such as these was our ‘minimum viable product’ ethos. As explained in our planning section, by ensuring there was always a minimum viable product, it meant that our tool was always fully functioning. The effect of this was that no task was mandatory to complete in order to make our product ‘work’, only to expand on it’s functionality, meaning that a majority of our features could be worked upon independently of one another without breaking someone else’s work.
+
+There were times in our project where certain tasks took longer to complete than initially planned for. With other tasks depending upon the completion of these tasks, this had a knock-on effect, resulting in delays in progression. An example of this would be situations where the endpoints within the back-end of our application would be modified, and the user interface could not be updated until it was known exactly what form the back-end would now accept and return data in. Fortunately, each team member had enough tasks assigned so that the majority of the time, if someone was unable to work on one certain task, they could instead switch their focus to a different task. This was made much easier through the use of a project Trello board, so we knew what tasks were required to be done and could identify a different task to work on with ease.
+
+In the early stages of our project, a Gantt chart, as can be seen in figure \ref{fig:gantt}, was created based off of our initial project goals and requirements, containing all major progress seminars and other deadlines. Agile development meant that during sprint planning meetings the team could assess which sections of the project were to be worked on during the next sprint, and could also identify a number of tasks based off of our Gantt chart that could be completed during the next sprint in order to reach progress targets. During deliverable one, we stuck to our Gantt chart almost perfectly, reaching all targets that had been aimed for. However, during this deliverable, in scrum meetings we started to identify that Terrapattern was not going to be the ideal solution for some of the project’s requirements, meaning that the direction of our project began to diverge from the Gantt chart. With agile, this was not a problem as the Gantt chart was simply an initial outline for main plans, and with sprints occurring every two weeks we were able to set targets with the project client on a per-sprint basis, whilst still ultimately working towards the main goals in the project.
+
+\section{Requirements Analysis}
+In order to evaluate the final product effectively, this section will refer back to requirements stated in the planning section, and document whether/how each requirement has been met.
+
+\subsection{Functional Requirements}
+
+This section addresses functional requirements as listed in \ref{funcreqs}.
+
+\subsubsection{Image uploading}
+The user is able to upload any Ordnance Survey image of any quality. Currently, upload is restricted to 4000x4000px due to lack of server resources making it infeasible to increase this limit, however the majority of images provided are 4000x4000px.
+
+\subsubsection{Feature Selection}
+
+A user is able to select any feature within the image. By using a grid of 128x128px and a selection size of 256x256px, features that lay on borders are able to be selected.
+
+\subsubsection{Attribute Extraction}
+
+The system successfully extracts information from selected features. It can extract 1024 attributes from any given image tile of size 256x256px. 
+
+\subsubsection{Feature Identification}
+
+The system successfully uses the extracted information to classify the selected feature using the SVM.
+
+\subsubsection{Iterative Training}
+
+``Learn Mode" in Productizer fully supports iterative training.
+
+\subsubsection{Intuitive Interface}
+The user interface is simple to use, and abstracts away from the complexity of the application.
+
+\subsection{Non-Functional Requirements}
+
+This section addresses our non-functional requirements as listed in \ref{nonfuncreqs}.
+
+\subsubsection{Accuracy}
+We were unable to fully test our accuracy beyond a limited set of sample imagery, however the application showed a high accuracy rate within all sample imagery with sufficient training.
+
+\subsubsection{Scalability}
+With use of an SVM, 100 features does have an effect on overall performance, however still provides the ability to classify this number of unique features.
+
+\subsubsection{Speed}
+The back-end meets our 0.1s target for image processing.
+
+\subsubsection{Usability}
+The user is typically required to provide 5 to 10 training images per feature to obtain accurate predictions. This can easily be achieved within 5 minutes via the user interface.
+
+\subsubsection{Productivity}
+We are unable to test this productivity requirement within the time frame of our project.
+
+\subsection{Implementation Requirements}
+
+This section addresses our implementation requirements as listed in \ref{impreqs}.
+
+\subsubsection{Language}
+The front and back end met the language requirements that we stated.
+
+\subsubsection{Persistence}
+The front and back end met all of our stated persistence requirements.
+
+\subsubsection{Front End}
+The front-end successfully can be accessed by multiple users concurrently.
+
+\subsubsection{Platform}
+The back-end operates on a platform that is available to a wide audience.
+
+\subsubsection{Framework}
+Flask proved to be quick to learn within the project timeframe, allowing it to be powerfully utilised within the final product.
+
+\subsection{Interface Requirements}
+This section addresses interface requirements as listed in \ref{intreqs}.
+
+\subsubsection{Image Manipulation}
+The interface of the application successfully allows a user to upload any Ordnance Survey aerial image and by using Google Maps API allows said user to pan around, selecting features as they desire. A history page on our web interface provides access to all previously uploaded images.
+
+\subsubsection{Interaction with Classifier}
+The user interface submits requests to the back-end based on data provided by the user, and provides data in a fashion that hides the complexity of all back-end algorithms. The interface is easy to use and requires no knowledge in machine learning.
+
+\subsection{Use Case Analysis}
+All processes stated within the use case diagram, as shown in figure \ref{fig:use_case_diagram}, have been satisfied. A user is able to use previous maps or upload a new one, use Learn Mode to teach the classifier, use Discover Mode to obtain predictions based on training data provided, and filter these predictions based on the class they are looking to find. They are able to create new classes that are defined on the classifier with sufficient training data, and finally reclassify a map to find any features that may change in class due to further training data.
